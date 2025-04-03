@@ -62,7 +62,7 @@ sudo usermod -a -G docker ec2-user
 
 newgrp docker 
 
-sudo chmod 666 /var/run/docker.sock  # to give access docker demon to run docker server 
+sudo chmod 666 /var/run/docker.sock  # to give access docker daemon to run docker server 
 
 docker --version to check docker version
 
