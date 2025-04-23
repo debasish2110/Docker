@@ -1,0 +1,37 @@
+### docker build executes only FROM and RUN instructions from the Dockerfile
+-------------------------------------------------------------------------------
+[ec2-user@ip-172-31-42-60 ~]$ docker build -t test .
+[+] Building 16.6s (6/6) FINISHED                                                                                                                                        docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                               0.0s
+ => => transferring dockerfile: 166B                                                                                                                                               0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                   2.2s
+ => [internal] load .dockerignore                                                                                                                                                  0.0s
+ => => transferring context: 2B                                                                                                                                                    0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest@sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02                                                             2.3s
+ => => resolve docker.io/library/ubuntu:latest@sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02                                                             0.0s
+ => => sha256:f8b860e4f9036f2694571770da292642eebcc4c2ea0c70a1a9244c2a1d436cd9 424B / 424B                                                                                         0.0s
+ => => sha256:602eb6fb314b5fafad376a32ab55194e535e533dec6552f82b70d7ac0e554b1c 2.30kB / 2.30kB                                                                                     0.0s
+ => => sha256:2726e237d1a374379e783053d93d0345c8a3bf3c57b5d35b099de1ad777486ee 29.72MB / 29.72MB                                                                                   0.7s
+ => => sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02 6.69kB / 6.69kB                                                                                     0.0s
+ => => extracting sha256:2726e237d1a374379e783053d93d0345c8a3bf3c57b5d35b099de1ad777486ee                                                                                          1.5s
+ => [2/2] RUN apt-get update -y                                                                                                                                                   11.7s
+ => exporting to image                                                                                                                                                             0.3s
+ => => exporting layers                                                                                                                                                            0.3s
+ => => writing image sha256:362518b5324c8757299e00cead41a8cfbe44d1ecc083bf2a65aff3b0608c10b4                                                                                       0.0s
+ => => naming to docker.io/library/test       
+
+ 
+[ec2-user@ip-172-31-42-60 ~]$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+test         latest    362518b5324c   3 minutes ago   126MB
+[ec2-user@ip-172-31-42-60 ~]$ docker run -dt test
+45e14a6a7a1390cd3449b1e65a115c7558e743948aefca23fd9b20c4cab7d062
+
+-------------------------------------------------------
+### CMD instruction will be executed in runtime
+-------------------------------------------------------
+[ec2-user@ip-172-31-42-60 ~]$ docker run test
+hello, from docker
+[ec2-user@ip-172-31-42-60 ~]$
+
+                                                                                                                                     
