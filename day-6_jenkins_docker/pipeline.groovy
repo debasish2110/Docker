@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage('clone repository'){
             steps{
-                git branch: 'main', credentialsId: 'git', url: 'https://github.com/nareshdevopscloud/project-1-maven-jenkins-CICD-docker-eks-.git'
+                git branch: 'main', credentialsId: 'git', url: 'https://github.com/debasish2110/JavaCode_for_docker_maven_jenkins_practice.git'
             }
         }
 
