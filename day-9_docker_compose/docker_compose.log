@@ -1,0 +1,55 @@
+[root@ip-172-31-35-1 ~]# docker-compose version
+Docker Compose version v2.35.1
+[root@ip-172-31-35-1 ~]# docker-compose up -d
+WARN[0000] /root/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 34/34
+ ✔ web Pulled                                                                                                                                                                     26.6s
+   ✔ 254e724d7786 Pull complete                                                                                                                                                    8.0s
+   ✔ 45d789cd9c84 Pull complete                                                                                                                                                    8.0s
+   ✔ 1d3659077708 Pull complete                                                                                                                                                   15.0s
+   ✔ b98ca3230ca2 Pull complete                                                                                                                                                   15.1s
+   ✔ a2de5d8c5156 Pull complete                                                                                                                                                   16.2s
+   ✔ ff5d5a2cec55 Pull complete                                                                                                                                                   16.2s
+   ✔ 41763122faa0 Pull complete                                                                                                                                                   16.3s
+   ✔ 727efbdd2260 Pull complete                                                                                                                                                   16.5s
+   ✔ 9684ac5f3e3b Pull complete                                                                                                                                                   16.5s
+   ✔ 9e624203aed6 Pull complete                                                                                                                                                   17.5s
+   ✔ a6f9d43f5dbf Pull complete                                                                                                                                                   17.5s
+   ✔ cbe5f891bcf0 Pull complete                                                                                                                                                   17.6s
+   ✔ d3ce6e797145 Pull complete                                                                                                                                                   17.6s
+   ✔ 4f4fb700ef54 Pull complete                                                                                                                                                   17.6s
+   ✔ e92edb2abe62 Pull complete                                                                                                                                                   19.2s
+   ✔ 68856c758b84 Pull complete                                                                                                                                                   20.8s
+   ✔ 8df40cfa8c6e Pull complete                                                                                                                                                   20.9s
+   ✔ 3e5da6b28492 Pull complete                                                                                                                                                   20.9s
+   ✔ 2641375f11c9 Pull complete                                                                                                                                                   21.0s
+   ✔ 82ec7a8e7961 Pull complete                                                                                                                                                   23.3s
+   ✔ adbe25d2eec3 Pull complete                                                                                                                                                   23.4s
+   ✔ 6e954442c584 Pull complete                                                                                                                                                   23.4s
+ ✔ db Pulled                                                                                                                                                                      27.5s
+   ✔ c2eb5d06bfea Pull complete                                                                                                                                                    4.0s
+   ✔ ba361f0ba5e7 Pull complete                                                                                                                                                    4.0s
+   ✔ 0e83af98b000 Pull complete                                                                                                                                                    4.1s
+   ✔ 770e931107be Pull complete                                                                                                                                                    4.7s
+   ✔ a2be1b721112 Pull complete                                                                                                                                                    4.7s
+   ✔ 68c594672ed3 Pull complete                                                                                                                                                    4.8s
+   ✔ cfd201189145 Pull complete                                                                                                                                                    8.2s
+   ✔ e9f009c5b388 Pull complete                                                                                                                                                    8.2s
+   ✔ 61a291920391 Pull complete                                                                                                                                                   24.3s
+   ✔ c8604ede059a Pull complete                                                                                                                                                   24.3s
+[+] Running 3/3
+ ✔ Network root_default  Created                                                                                                                                                   0.1s
+ ✔ Container root-db-1   Started                                                                                                                                                   2.1s
+ ✔ Container root-web-1  Started                                                                                                                                                   0.8s
+[root@ip-172-31-35-1 ~]#
+[root@ip-172-31-35-1 ~]#
+[root@ip-172-31-35-1 ~]#
+[root@ip-172-31-35-1 ~]#
+[root@ip-172-31-35-1 ~]#
+[root@ip-172-31-35-1 ~]# docker-compose ps
+WARN[0000] /root/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+NAME         IMAGE       COMMAND                  SERVICE   CREATED              STATUS              PORTS
+root-db-1    mysql       "docker-entrypoint.s…"   db        About a minute ago   Up About a minute   3306/tcp, 33060/tcp
+root-web-1   wordpress   "docker-entrypoint.s…"   web       About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+[root@ip-172-31-35-1 ~]#
+
