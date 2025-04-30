@@ -35,25 +35,30 @@ Docker is a containerization platform that enables developers to package applica
 
 Docker follows a **client-server architecture**, consisting of the following major components:
 
+**How It Works**
+- The Docker Client is where users initiate actions (e.g., running a container, building an image).
+
+- The Docker Daemon acts as the server and handles these requests. It runs the actual containers, manages their life cycles, pulls images, etc.
+
 ---
 
 ### 1. Docker Engine
 
 The **Docker Engine** is the runtime that builds and runs containers. It is made up of three essential parts:
 
-#### a. Docker Daemon (`dockerd`)
+#### a. Docker Client (`docker`)
+- The interface through which users interact with Docker.
+- Command-line tool that accepts user commands and translates them into Docker API calls.
+- Typically interacts with the Docker daemon on the same host, but can also communicate with remote Docker daemons.
+- Common commands: `docker build`, `docker run`, `docker stop`, `docker ps`, etc.
+
+#### b. Docker Daemon (`dockerd`)
 - Acts as the server component of Docker.
 - Continuously runs as a background process on the host machine.
 - Listens for Docker API requests over a UNIX socket or network interface.
 - Responsible for creating, managing, and executing Docker containers.
 - Can also manage Docker images, volumes, and networks.
 - Can communicate with other Docker daemons to manage Docker services in a distributed manner (used in Docker Swarm).
-
-#### b. Docker Client (`docker`)
-- The interface through which users interact with Docker.
-- Command-line tool that accepts user commands and translates them into Docker API calls.
-- Typically interacts with the Docker daemon on the same host, but can also communicate with remote Docker daemons.
-- Common commands: `docker build`, `docker run`, `docker stop`, `docker ps`, etc.
 
 #### c. Docker REST API
 - Defines how the client and other external tools communicate with the Docker daemon.
