@@ -4,6 +4,33 @@ Docker is a containerization platform that enables developers to package applica
 
 ---
 
+## 📊 Docker Architecture Diagram
+
+```
++------------------+       Docker CLI/API       +---------------------+
+|  Docker Client   |  <-----------------------> |   Docker Daemon     |
+|  (docker)        |                            |  (dockerd)          |
++------------------+                            +----------+----------+
+                                                          |
+                         +--------------------------------+
+                         |
+        +----------------+------------------+
+        |         Docker Objects            |
+        |  - Images                         |
+        |  - Containers                     |
+        |  - Volumes                        |
+        |  - Networks                       |
+        +----------------+------------------+
+                         |
+                         v
+              +----------------------+
+              |  Docker Registry     |
+              | (Docker Hub, ECR)    |
+              +----------------------+
+```
+
+---
+
 ## 🧱 Components of Docker Architecture
 
 Docker follows a **client-server architecture**, consisting of the following major components:
@@ -74,33 +101,6 @@ Docker registries are repositories where Docker images are stored and distribute
 - **Operations**:
   - `docker pull <image>`: Downloads an image from a registry.
   - `docker push <image>`: Uploads a locally built image to a registry.
-
----
-
-## 📊 Docker Architecture Diagram
-
-```
-+------------------+       Docker CLI/API       +---------------------+
-|  Docker Client   |  <-----------------------> |   Docker Daemon     |
-|  (docker)        |                            |  (dockerd)          |
-+------------------+                            +----------+----------+
-                                                          |
-                         +--------------------------------+
-                         |
-        +----------------+------------------+
-        |         Docker Objects            |
-        |  - Images                         |
-        |  - Containers                     |
-        |  - Volumes                        |
-        |  - Networks                       |
-        +----------------+------------------+
-                         |
-                         v
-              +----------------------+
-              |  Docker Registry     |
-              | (Docker Hub, ECR)    |
-              +----------------------+
-```
 
 ---
 
